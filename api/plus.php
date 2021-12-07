@@ -13,6 +13,7 @@ $z = $x + $y;
 //$conn = mysqli_connect("localhost","root","","calc");
 // 4. Код, уязвимый для Sql-injection
 
+//Первые три проблемы исправлены ниже:
 include("C:\\AppParams\\params.php");
 $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
 
