@@ -14,34 +14,26 @@
     //echo getenv("MYAPP_CONFIG");
     include(getenv("MYAPP_CONFIG"));
 
-?>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <?php
-            //echo($user);
-            //Оставим уязвимость sql-injection для спортивных упражнений
-            $sql = "SELECT ID, Number1, Number2, Result, UserID 
-                    FROM log 
-                    WHERE UserID='$user'
-            ";
 
-            $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
-            //Нудная, но необходимая процедура передачи параметров 
-            //в sql выражение, что гарантирует защиту от инжекции sql
-            $statement = mysqli_prepare($conn, $sql);
-            mysqli_stmt_execute($statement);
-            echo(mysqli_error($conn));
-            $cursor = mysqli_stmt_get_result($statement);
-            $result = mysqli_fetch_all($cursor);
+    //echo($user);
+    //Оставим уязвимость sql-injection для спортивных упражнений
+    $sql = "SELECT ID, Number1, Number2, Result, UserID 
+            FROM log 
+            WHERE UserID='$user'
+    ";
 
-            echo(mysqli_error($conn));
-            mysqli_close($conn);
+    $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
+    //Нудная, но необходимая процедура передачи параметров 
+    //в sql выражение, что гарантирует защиту от инжекции sql
+    $statement = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($statement);
+    echo(mysqli_error($conn));
+    $cursor = mysqli_stmt_get_result($statement);
+    $result = mysqli_fetch_all($cursor);
 
-            //var_dump($result);
-            echo(json_encode($result));
-        ?>
-    </body>
-</html>
+    echo(mysqli_error($conn));
+    mysqli_close($conn);
+
+    //var_dump($result);
+    echo(json_encode($result));
+       
