@@ -15,8 +15,7 @@
             $hash = hash('sha256',$pwd);
             $sql = "SELECT ID, UserName 
                     FROM users 
-                    WHERE UserName=? AND PwdHash=?
-            ";
+                    WHERE UserName=? AND PwdHash=?";
 
             $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
             //Нудная, но необходимая процедура передачи параметров 
