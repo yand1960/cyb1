@@ -22,11 +22,11 @@
 
         <script>
             function plus() {
-                //Это комментарий JS
+                //Читаем данные, введенные пользователем
                 var x = document.getElementById("x").value;
                 var y = document.getElementById("y").value;
                 
-                //Формируем адрес запроса
+                //Формируем адрес запроса, типа api/plus.php?x=1&y=2
                 var url = "api/plus.php?x=" + x + "&y=" + y;
                 //выполняем запрос
                 var xhr = new XMLHttpRequest();
