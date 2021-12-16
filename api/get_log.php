@@ -26,6 +26,7 @@
             WHERE UserID='$user'
     ";
 
+    //Подключаемся к БД и выполняем sql-запрос
     $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
     $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_execute($statement);
