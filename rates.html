@@ -1,6 +1,7 @@
 <html>
     <head>
-        <!-- Это комментарий HTML -->
+        <!--  Страница запрашивает у json-службы ЦБР курсы валют, 
+        извлекает курс азербайджанского маната и выводит его -->
         <meta charset="utf-8" />
         <script>
             function getRates() {
@@ -10,8 +11,10 @@
                 xhr.send();
                 var text = xhr.responseText;
                 //console.log(text);
+                //десериализация:
                 var rates = JSON.parse(text);
                 console.log(rates);
+                //Извлечение результата
                 var azn = rates.Valute.AZN.Value;
                 document.getElementById("display").innerText = azn;
             }

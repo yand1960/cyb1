@@ -13,7 +13,6 @@
 <html>
     <head>
         
-        <!-- Это комментарий HTML -->
         <meta charset="utf-8" />
 
         <style>
@@ -35,10 +34,11 @@
 
         <script>
             function plus() {
-                //Это комментарий JS
+                
                 var x = document.getElementById("x").value;
                 var y = document.getElementById("y").value;
                 
+                //AJhvbh
                 var url = "api/plus.php?x=" + x + "&y=" + y;
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET",url,false);

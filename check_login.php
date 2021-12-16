@@ -1,7 +1,12 @@
 <?php
     session_start();
-    //echo getenv("MYAPP_CONFIG");
-    include(getenv("MYAPP_CONFIG"));
+
+    // Страница получает имя и пароль пользователя со
+    // страницы login.php и проверяет их по БД.
+    // В случае успеха выписывает "жетон безопасности" 
+    // в виде сессионной переменной с названием user 
+    // и перенаправляет на страницу индекса.
+    // В случае неудачи перенаправляет на страницу логина
 
 ?>
 <html>
@@ -10,6 +15,9 @@
     </head>
     <body>
         <?php
+            // Получение файла параметров для подключения к БД
+            include(getenv("MYAPP_CONFIG"));
+
             $user = $_REQUEST["user"];
             $pwd = $_REQUEST["pwd"];
             $hash = hash('sha256',$pwd);
@@ -40,6 +48,7 @@
             }
             else {
                 echo ("BAD LOGIN!");
+                echo('<meta http-equiv="refresh" content="2; URL=login.php">');
             }
         ?>
     </body>

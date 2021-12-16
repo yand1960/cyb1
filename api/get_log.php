@@ -1,6 +1,9 @@
 <?php
     session_start();
 
+    //Служба, возвращающая в виде JSON данные из таблицы БД. 
+    // Эту службу запрашивает страница billing.php
+
      //Если жетона безопасности (т.е., в нашем случае, 
     //сессионной переменной c названием user) нет, "не пущаем"
     if (!isset($_SESSION["user"])) {
@@ -23,8 +26,6 @@
     ";
 
     $conn = mysqli_connect($DB_URL,$DB_USER,$DB_PWD,$DB_NAME);
-    //Нудная, но необходимая процедура передачи параметров 
-    //в sql выражение, что гарантирует защиту от инжекции sql
     $statement = mysqli_prepare($conn, $sql);
     mysqli_stmt_execute($statement);
     echo(mysqli_error($conn));

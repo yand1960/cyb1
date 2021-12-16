@@ -1,7 +1,7 @@
 <html>
     <head>
-        <!-- Это комментарий HTML -->
-        <meta charset="utf-8" />
+         <!-- Страница, демонстрирующая как можно из JS отправить 
+            данные на сервер (на сервис api/plus.php) и получить отклик-->
 
         <style>
             /* Это комментарий CSS */
@@ -26,12 +26,16 @@
                 var x = document.getElementById("x").value;
                 var y = document.getElementById("y").value;
                 
+                //Формируем адрес запроса
                 var url = "api/plus.php?x=" + x + "&y=" + y;
+                //выполняем запрос
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET",url,false);
                 xhr.send();
+                //Получаем результат запроса
                 var z = xhr.responseText;
 
+                //Выводим результат
                 document.getElementById("z").value = z;
                 document.getElementById("btn1").className = "pressed";
                 document.getElementById("btn2").className = "";
