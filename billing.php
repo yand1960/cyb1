@@ -26,7 +26,7 @@
                 xhr.open("GET",url,false);
                 xhr.send();
                 var text = xhr.responseText;
-                //Десериализация массива данных их полученного текста
+                //Десериализация массива данных из полученного от службы текста
                 var results = JSON.parse(text);
                 console.log(results);
                 //Формирование читаемого текста из десериализованного массива
